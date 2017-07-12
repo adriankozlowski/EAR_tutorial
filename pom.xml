@@ -10,6 +10,5 @@
     <module>enterprise-ear</module>
     <module>enterprise-web</module>
     <module>enterprise-ejb</module>
-    <module>EjbTester</module>
   </modules>
 </project>

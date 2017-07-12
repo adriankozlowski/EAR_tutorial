@@ -8,14 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
-import javax.ejb.Remote;
 
 /**
  *
  * @author martin
  */
 @Stateless
-@Remote(NewSessionBeanRemote.class)
+@LocalBean 
 public class NewSessionBean implements NewSessionBeanRemote{
 
     private final ArrayList<String> books;
