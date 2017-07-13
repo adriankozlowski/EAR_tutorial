@@ -14,9 +14,7 @@ import javax.ejb.Remote;
  * @author Adrian
  */
 @Remote
-public interface NewSessionBeanRemote {
-
-    public void businessMethod();
+public interface NewSessionBeanRemote {    
 
     public List<String> getBooks();
 

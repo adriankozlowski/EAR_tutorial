@@ -23,13 +23,6 @@ public class NewSessionBean implements NewSessionBeanRemote{
         this.books = new ArrayList<String>();
     }
 
-    
-    public void businessMethod() {
-    }
-
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-
     @Override
     public List<String> getBooks() {
         return this.books;
