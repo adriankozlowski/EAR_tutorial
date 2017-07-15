@@ -7,6 +7,8 @@ package pl.sda.ejb;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -16,6 +18,9 @@ import javax.ejb.Stateless;
 public class NewSessionBean implements NewSessionBeanRemote{
 
     private final ArrayList<String> books;
+    
+    @PersistenceContext(unitName = "persistance_unit")
+    private EntityManager em;
 
     public NewSessionBean() {
         this.books = new ArrayList<String>();
