@@ -7,14 +7,12 @@ package pl.sda.ejb;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
 
 /**
  *
  * @author martin
  */
 @Stateless
-@LocalBean 
 public class NewSessionBean implements NewSessionBeanRemote{
 
     private final ArrayList<String> books;

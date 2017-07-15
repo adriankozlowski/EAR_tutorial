@@ -14,6 +14,7 @@ import javax.ejb.Remote;
  * @author Adrian
  */
 @Remote
+@Local
 public interface NewSessionBeanRemote {    
 
     public List<String> getBooks();
