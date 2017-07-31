@@ -16,19 +16,19 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "applicationController")
 @ApplicationScoped
 public class ApplicationController {
-
+    
     @EJB
     private NewSessionBeanRemote bean;
-    
+
     /**
      * Creates a new instance of ApplicationController
      */
     public ApplicationController() {
         
     }
- 
-    public String getText(){
-        
+    
+    public String getText() {        
+        bean.addBook("Tytul ksionszki");
         return "hsfadfsd";
     }
 }

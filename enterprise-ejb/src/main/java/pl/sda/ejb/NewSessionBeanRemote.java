@@ -5,6 +5,8 @@
  */
 package pl.sda.ejb;
 
+import pl.sda.ejb.model.Book;
+
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Remote;
@@ -13,11 +15,10 @@ import javax.ejb.Remote;
  *
  * @author Adrian
  */
-@Remote
 @Local
 public interface NewSessionBeanRemote {    
 
-    public List<String> getBooks();
+    public List<Book> getBooks();
 
     public void addBook(String bookName);
     
