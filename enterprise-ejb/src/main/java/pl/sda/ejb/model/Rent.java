@@ -38,6 +38,9 @@ public class Rent implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date rentalDate;
     
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date returnDate;
+    
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
@@ -102,6 +105,14 @@ public class Rent implements Serializable {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
     }
     
 }

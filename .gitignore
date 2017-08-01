@@ -1,3 +1,4 @@
 /EjbTester/target/
 /.idea
 *.iml
+/enterprise-ejb/target/

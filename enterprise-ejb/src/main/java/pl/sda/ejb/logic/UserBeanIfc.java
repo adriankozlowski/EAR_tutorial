@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pl.sda.ejb;
+package pl.sda.ejb.logic;
 
 import pl.sda.ejb.model.Book;
 
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Remote;
+import pl.sda.ejb.model.User;
 
 /**
  *
  * @author Adrian
  */
 @Local
-public interface NewSessionBeanRemote {    
+@Remote
+public interface UserBeanIfc {    
 
-    public List<Book> getBooks();
-
-    public void addBook(String bookName);
+    public User createUser();
+    public Book rentBook(Long userId, Long bookId);
     
 }

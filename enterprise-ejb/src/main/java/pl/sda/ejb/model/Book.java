@@ -6,11 +6,15 @@
 package pl.sda.ejb.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +36,11 @@ public class Book implements Serializable {
     private String isbn;
     @Column(name = "date")
     private int releaseDate;
+    @ManyToMany
+    @JoinTable(name = "books_authors", 
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name="book_id"))
+    private Collection<Author> authors;
 
     public Long getId() {
         return id;
@@ -93,5 +102,14 @@ public class Book implements Serializable {
     public String toString() {
         return "pl.sda.ejb.model.Book[ id=" + id + " ]";
     }
+
+    public Collection<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Collection<Author> authors) {
+        this.authors = authors;
+    }
+    
     
 }

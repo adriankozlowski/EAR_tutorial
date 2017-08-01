@@ -8,6 +8,7 @@ package pl.sda.ejb;
 import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import pl.sda.ejb.logic.UserBeanIfc;
 
 /**
  *
@@ -18,7 +19,7 @@ import javax.faces.bean.ManagedBean;
 public class ApplicationController {
     
     @EJB
-    private NewSessionBeanRemote bean;
+    private UserBeanIfc bean;
 
     /**
      * Creates a new instance of ApplicationController
@@ -28,7 +29,7 @@ public class ApplicationController {
     }
     
     public String getText() {        
-        bean.addBook("Tytul ksionszki");
+//        bean.addBook("Tytul ksionszki");
         return "hsfadfsd";
     }
 }
