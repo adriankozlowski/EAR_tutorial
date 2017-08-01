@@ -7,6 +7,7 @@ package pl.sda.ejb.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,9 +37,11 @@ public class Rent implements Serializable {
      * Ponadto niezwiązane jest ze strefami czasowymi.
      */
     @Temporal(TemporalType.TIMESTAMP)
+    @Column
     private Date rentalDate;
     
     @Temporal(TemporalType.TIMESTAMP)
+    @Column
     private Date returnDate;
     
     @ManyToOne
