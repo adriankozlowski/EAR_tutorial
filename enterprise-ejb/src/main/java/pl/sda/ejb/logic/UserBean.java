@@ -4,11 +4,15 @@
  */
 package pl.sda.ejb.logic;
 
+import java.util.Date;
+import javax.ejb.EJB;
 import pl.sda.ejb.model.Book;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import pl.sda.ejb.model.Rent;
 import pl.sda.ejb.model.User;
 
 /**
@@ -21,6 +25,9 @@ public class UserBean implements UserBeanIfc{
     @PersistenceContext(unitName = "pl.sda.ejb_enterprise-ejb_ejb_1.0-SNAPSHOTPU")
     private EntityManager em;
 
+    @EJB
+    private AccountingBeanIfc abi;
+    
     public UserBean() {
 
     }
@@ -28,11 +35,32 @@ public class UserBean implements UserBeanIfc{
 
     @Override
     public Book rentBook(Long userId, Long bookId){
-        return null;
+        User user = em.find(User.class, userId);
+        Book book = em.find(Book.class, bookId);
+        Rent rent = new Rent();
+        rent.setBook(book);
+        rent.setUser(user);
+        rent.setRentalDate(new Date());
+        em.persist(rent);
+        abi.doDebit(rent);
+        return book;
     }
 
     @Override
     public User createUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(user != null){
+            em.persist(user);
+            return user;
+        }
+        return null;
+    }
+
+    @Override
+    public User logIn(String username, String password) {
+        Query query = em.createQuery("from User u where u.username = :username and u.password = :passowrd");
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        User user = (User) query.getSingleResult();
+        return user;
     }
 }

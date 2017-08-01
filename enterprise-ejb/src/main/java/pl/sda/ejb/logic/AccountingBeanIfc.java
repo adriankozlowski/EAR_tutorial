@@ -17,8 +17,8 @@ import pl.sda.ejb.model.User;
 @Local
 public interface AccountingBeanIfc {
     
-    BigDecimal doDebit(Rent rent);
-    BigDecimal doCredit(User user, BigDecimal credit);
+    void doDebit(Rent rent);
+    void doCredit(User user, BigDecimal credit);
     BigDecimal saldo(User user);
     
 }

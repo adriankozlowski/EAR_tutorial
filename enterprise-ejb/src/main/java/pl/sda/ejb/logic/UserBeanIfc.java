@@ -22,5 +22,7 @@ public interface UserBeanIfc {
 
     public User createUser(User user);
     public Book rentBook(Long userId, Long bookId);
+
+    public User logIn(String username, String password);
     
 }

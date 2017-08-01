@@ -6,9 +6,13 @@
 package pl.sda.ejb.logic;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import pl.sda.ejb.model.Account;
 import pl.sda.ejb.model.Rent;
 import pl.sda.ejb.model.User;
 
@@ -23,18 +27,28 @@ public class AccountingBean implements AccountingBeanIfc {
     private EntityManager em;
    
     @Override
-    public BigDecimal doDebit(Rent rent) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void doDebit(Rent rent) {
+        Account account = new Account();
+        account.setDebit(new BigDecimal(10));
+        account.setDate(new Date());
+        account.setUser(rent.getUser());
+       em.persist(rent);
     }
 
     @Override
-    public BigDecimal doCredit(User user, BigDecimal credit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void doCredit(User user, BigDecimal credit) {
+        Account account = new Account();
+        account.setCredit(credit);
+        account.setDate(new Date());
+        account.setUser(user);
+        em.persist(account);
     }
 
     @Override
     public BigDecimal saldo(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query q = em.createQuery("select sum(a.credit) - sum(a.debit) from Account a where a.user = :user");
+        Object singleResult = q.getSingleResult();
+        return (BigDecimal) singleResult;
     }
 
     // Add business logic below. (Right-click in editor and choose
