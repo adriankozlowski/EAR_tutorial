@@ -7,7 +7,6 @@ package pl.sda.ejb;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
-import javax.enterprise.context.ApplicationScoped;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 

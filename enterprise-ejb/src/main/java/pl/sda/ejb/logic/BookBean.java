@@ -20,17 +20,18 @@ public class BookBean implements BookBeanIfc {
      
     @PersistenceContext(unitName = "pl.sda.ejb_enterprise-ejb_ejb_1.0-SNAPSHOTPU")
     private EntityManager em;
-    
-    @Override
-    public Book addBook(Book book) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
     @Override
     public Author addAuthor(Author author) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Book addBook(Book book) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

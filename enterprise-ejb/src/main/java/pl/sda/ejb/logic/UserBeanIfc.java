@@ -20,7 +20,7 @@ import pl.sda.ejb.model.User;
 @Remote
 public interface UserBeanIfc {    
 
-    public User createUser();
+    public User createUser(User user);
     public Book rentBook(Long userId, Long bookId);
     
 }

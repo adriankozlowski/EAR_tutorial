@@ -6,11 +6,9 @@ package pl.sda.ejb.logic;
 
 import pl.sda.ejb.model.Book;
 
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import pl.sda.ejb.model.User;
 
 /**
@@ -26,15 +24,15 @@ public class UserBean implements UserBeanIfc{
     public UserBean() {
 
     }
-    
-    @Override
-    public User createUser(){
-        return null;
-    }
 
 
     @Override
     public Book rentBook(Long userId, Long bookId){
         return null;
+    }
+
+    @Override
+    public User createUser(User user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
