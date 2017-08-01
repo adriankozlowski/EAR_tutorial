@@ -5,8 +5,12 @@
  */
 package pl.sda.ejb.books;
 
+import dtos.BookDto;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import pl.sda.ejb.logic.BookBeanIfc;
 
 /**
  *
@@ -16,10 +20,16 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class BooksTableController {
 
+    @EJB
+    private BookBeanIfc bbi;
     /**
      * Creates a new instance of BooksTableController
      */
     public BooksTableController() {
+    }
+    
+    public List<BookDto> getList(){
+       return null; 
     }
     
 }
