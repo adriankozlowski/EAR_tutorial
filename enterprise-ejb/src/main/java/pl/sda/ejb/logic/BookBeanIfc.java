@@ -5,6 +5,7 @@
  */
 package pl.sda.ejb.logic;
 
+import java.util.List;
 import javax.ejb.Local;
 import pl.sda.ejb.model.Author;
 import pl.sda.ejb.model.Book;
@@ -17,4 +18,5 @@ import pl.sda.ejb.model.Book;
 public interface BookBeanIfc {
     Book addBook(Book book);
     Author addAuthor(Author author);
+    public List<Book> getBooks();
 }

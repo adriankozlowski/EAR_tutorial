@@ -5,6 +5,7 @@
  */
 package pl.sda.ejb.logic;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,6 +33,11 @@ public class BookBean implements BookBeanIfc {
 
     @Override
     public Book addBook(Book book) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Book> getBooks() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

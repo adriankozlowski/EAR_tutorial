@@ -7,10 +7,13 @@ package pl.sda.ejb.books;
 
 import dtos.BookDto;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.modelmapper.ModelMapper;
 import pl.sda.ejb.logic.BookBeanIfc;
+import pl.sda.ejb.model.Book;
 
 /**
  *
@@ -22,14 +25,23 @@ public class BooksTableController {
 
     @EJB
     private BookBeanIfc bbi;
+
     /**
      * Creates a new instance of BooksTableController
      */
     public BooksTableController() {
     }
-    
-    public List<BookDto> getList(){
-       return null; 
+
+    public List<BookDto> getList() {
+        List<Book> books = bbi.getBooks();
+        List<BookDto> collect = books.stream().map(this::map).collect(Collectors.toList());
+        return collect;
     }
-    
+
+    private BookDto map(Book b) {
+        ModelMapper mapper = new ModelMapper();
+        BookDto map = mapper.map(b, BookDto.class);
+        return map;
+    }
+
 }

@@ -5,8 +5,11 @@
  */
 package pl.sda.ejb.authors;
 
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
+import pl.sda.ejb.logic.BookBeanIfc;
+import pl.sda.ejb.model.Author;
 
 /**
  *
@@ -16,10 +19,28 @@ import javax.enterprise.context.Dependent;
 @Dependent
 public class AddAuthorFormController {
 
+    @EJB
+    private BookBeanIfc bbi;
+    
+    private String name;
+    
     /**
      * Creates a new instance of AddAuthorFormController
      */
     public AddAuthorFormController() {
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
+    public void save(){
+        Author author = new Author();
+        author.setName(this.name);
+        bbi.addAuthor(author);
+    }
 }
