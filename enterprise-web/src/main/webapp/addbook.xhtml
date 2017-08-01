@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:body>
+        <ui:composition template = "index.xhtml">
+
+            <ui:define name = "content">
+                <h:form>
+                    <div class="row">
+                        <div class="col-md-3">
+                            tytul
+                        </div>
+                        <div class="col-md-3">
+                            <h:inputText value="#{addBookController.title}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            ISBN
+                        </div>
+                        <div class="col-md-3">
+                            <h:inputText value="#{addBookController.isbn}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            data wydania
+                        </div>
+                        <div class="col-md-3">
+                            <h:inputText value="#{addBookController.releaseDate}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            autorzy (po przecinku)
+                        </div>
+                        <div class="col-md-3">
+                            <h:inputText value="#{addBookController.authors}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            zapisz
+                        </div>
+                        <div class="col-md-3">
+                            <h:commandButton action="#{addBookController.save}" value="Zapisz"/>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
