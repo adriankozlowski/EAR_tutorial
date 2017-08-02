@@ -12,6 +12,21 @@
 
             <ui:define name = "content">
                 SALDO:<h:outputText value="#{rentsTableController.saldo}"/>
+                <h:dataTable styleClass="table table-striped"
+                             value="#{rentsTableController.list}" var="rent">
+                    <h:column>
+                        <f:facet name="header">Tytul</f:facet>
+                            #{rent.book.bookTitle}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Data wypozyczenia</f:facet>
+                            #{rent.rentalDate}
+                    </h:column>
+                    <h:column>
+                     
+                    </h:column>                
+
+                </h:dataTable>
 
             </ui:define>
 

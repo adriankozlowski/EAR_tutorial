@@ -5,6 +5,7 @@
 package pl.sda.ejb.logic;
 
 import java.util.Date;
+import java.util.List;
 import javax.ejb.EJB;
 import pl.sda.ejb.model.Book;
 
@@ -65,7 +66,14 @@ public class UserBean implements UserBeanIfc{
     }
 
     @Override
-    public User findUser(Long userId) {
+    public User findUser(Long userId) {        
        return em.find(User.class, userId);                
+    }
+
+    @Override
+    public List<Rent> getRentBooks(Long l) {
+        Query query = em.createQuery("from Rent r where r.user = :user");
+        query.setParameter("user", this.findUser(l));
+        return query.getResultList();
     }
 }

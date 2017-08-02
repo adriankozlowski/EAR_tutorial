@@ -5,10 +5,12 @@
  */
 package pl.sda.ejb.logic;
 
+import java.util.List;
 import pl.sda.ejb.model.Book;
 
 import javax.ejb.Local;
 import javax.ejb.Remote;
+import pl.sda.ejb.model.Rent;
 import pl.sda.ejb.model.User;
 
 /**
@@ -25,5 +27,7 @@ public interface UserBeanIfc {
     public User logIn(String username, String password);
 
     public User findUser(Long l);
+
+    public List<Rent> getRentBooks(Long l);
     
 }

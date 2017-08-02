@@ -5,11 +5,18 @@
  */
 package pl.sda.ejb.rents;
 
+import dtos.BookDto;
+import dtos.RentDto;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
+import org.modelmapper.ModelMapper;
 import pl.sda.ejb.logic.AccountingBeanIfc;
 import pl.sda.ejb.logic.UserBeanIfc;
+import pl.sda.ejb.model.Book;
+import pl.sda.ejb.model.Rent;
 import pl.sda.ejb.model.User;
 
 /**
@@ -37,8 +44,14 @@ public class RentsTableController {
     public RentsTableController() {
     }
     
-//  public List<RentDto> list(){
-//      
-//  }
-    
+  public List<RentDto> getList(){
+      List<Rent> rentBooks = ubi.getRentBooks(1L);
+      List<RentDto> dtos = rentBooks.stream().map(this::map).collect(Collectors.toList());
+      return dtos;
+  }
+    private RentDto map(Rent b) {
+        ModelMapper mapper = new ModelMapper();
+        RentDto map = mapper.map(b, RentDto.class);
+        return map;
+    }
 }
