@@ -18,19 +18,16 @@
                             #{car.bookTitle}
                     </h:column>
                     <h:column>
-                        <f:facet name="header">Nr rejesracyjny</f:facet>
+                        <f:facet name="header">Data wydania</f:facet>
                             #{car.bookReleaseDate}
                     </h:column>
                     <h:column>
-                        <f:facet name="header">Mass</f:facet>
+                        <f:facet name="header">autorzy</f:facet>
                         <ui:repeat value="#{car.authors}" var="autor">
                             <h:outputText value="#{autor.authorName}" />
                         </ui:repeat>
                     </h:column>
-                    <h:column>
-                        <f:facet name="header">VIN</f:facet>
-                            #{car.vin}
-                    </h:column>
+                   
                 </h:dataTable>
 
             </ui:define>

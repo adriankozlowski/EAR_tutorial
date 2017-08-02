@@ -36,7 +36,7 @@ public class Book implements Serializable {
     private String title;
     @Column
     private String isbn;
-    @Column(name = "date")
+    @Column(name = "releaseDate")
     private int releaseDate;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "books_authors", 

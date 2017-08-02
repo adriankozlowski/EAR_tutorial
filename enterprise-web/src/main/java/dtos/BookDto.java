@@ -6,12 +6,6 @@
 package dtos;
 
 import java.util.Collection;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import pl.sda.ejb.model.Author;
 
 /**
  *

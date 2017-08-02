@@ -15,11 +15,11 @@
                             #{car.bookTitle}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Nr rejesracyjny</f:facet>
+                    <f:facet name="header">Data Wydania</f:facet>
                             #{car.bookReleaseDate}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Mass</f:facet>
+                    <f:facet name="header">Autorzy</f:facet>
                     <ui:repeat value="#{car.authors}" var="autor">
                         <h:outputText value="#{autor.authorName}" />
                     </ui:repeat>

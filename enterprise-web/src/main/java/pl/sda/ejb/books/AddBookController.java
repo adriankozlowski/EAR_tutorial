@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.persistence.Column;
 import pl.sda.ejb.logic.BookBeanIfc;
 import pl.sda.ejb.model.Author;
 import pl.sda.ejb.model.Book;
