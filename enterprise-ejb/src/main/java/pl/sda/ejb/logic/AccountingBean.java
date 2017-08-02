@@ -29,6 +29,7 @@ public class AccountingBean implements AccountingBeanIfc {
     public void doDebit(Rent rent) {
         Account account = new Account();
         account.setDebit(new BigDecimal(10));
+        account.setCredit(BigDecimal.ZERO);
         account.setDate(new Date());
         account.setUser(rent.getUser());
         account.setRent(rent);
@@ -39,6 +40,7 @@ public class AccountingBean implements AccountingBeanIfc {
     public void doCredit(User user, BigDecimal credit) {
         Account account = new Account();
         account.setCredit(credit);
+        account.setDebit(BigDecimal.ZERO);
         account.setDate(new Date());
         account.setUser(user);
         em.persist(account);
@@ -47,7 +49,8 @@ public class AccountingBean implements AccountingBeanIfc {
     @Override
     public BigDecimal saldo(User user) {
         Query q = em.createQuery("select sum(a.credit) - sum(a.debit) from Account a where a.user = :user");
-        Object singleResult = q.getSingleResult();
+        q.setParameter("user", user);
+        BigDecimal singleResult = (BigDecimal) q.getSingleResult();
         return (BigDecimal) singleResult;
     }
 

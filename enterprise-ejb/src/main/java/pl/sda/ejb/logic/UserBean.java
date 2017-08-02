@@ -63,4 +63,9 @@ public class UserBean implements UserBeanIfc{
         User user = (User) query.getSingleResult();
         return user;
     }
+
+    @Override
+    public User findUser(Long userId) {
+       return em.find(User.class, userId);                
+    }
 }

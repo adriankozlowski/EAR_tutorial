@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import pl.sda.ejb.logic.AccountingBeanIfc;
+import pl.sda.ejb.logic.UserBeanIfc;
 import pl.sda.ejb.model.User;
 
 /**
@@ -21,9 +22,12 @@ public class RentsTableController {
 
     @EJB
     private AccountingBeanIfc abi;
+    @EJB
+    private UserBeanIfc ubi;
     
     public String getSaldo(){
-        User user = new User(); //todo: pobrać usera z sesji (albo jego ID)
+        
+        User user = ubi.findUser(1L); //todo: pobrać usera z sesji (albo jego ID)
         return abi.saldo(user).toString();        
     }
     

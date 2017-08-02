@@ -23,5 +23,7 @@ public interface UserBeanIfc {
     public Book rentBook(Long userId, Long bookId);
 
     public User logIn(String username, String password);
+
+    public User findUser(Long l);
     
 }

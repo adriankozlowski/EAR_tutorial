@@ -11,25 +11,7 @@
         <ui:composition template = "index.xhtml">
 
             <ui:define name = "content">
-                <h:dataTable styleClass="table table-striped"
-                             value="#{applicationController.list}" var="car">
-                    <h:column>
-                        <f:facet name="header">Name</f:facet>
-                            #{car.name}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Nr rejesracyjny</f:facet>
-                            #{car.plateNumber}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Mass</f:facet>
-                            #{car.mass}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">VIN</f:facet>
-                            #{car.vin}
-                    </h:column>
-                </h:dataTable>
+                SALDO:<h:outputText value="#{rentsTableController.saldo}"/>
 
             </ui:define>
 
