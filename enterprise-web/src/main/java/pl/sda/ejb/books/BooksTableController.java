@@ -7,6 +7,8 @@ package pl.sda.ejb.books;
 
 import dtos.BookDto;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -34,14 +36,20 @@ public class BooksTableController {
 
     public List<BookDto> getList() {
         List<Book> books = bbi.getBooks();
-        List<BookDto> collect = books.stream().map(this::map).collect(Collectors.toList());
+        List<BookDto> collect;
+        collect = books.stream().map(this::map).collect(Collectors.toList());
+        
         return collect;
     }
 
     private BookDto map(Book b) {
         ModelMapper mapper = new ModelMapper();
-        BookDto map = mapper.map(b, BookDto.class);
+        BookDto map = mapper.map(b, BookDto.class);       
         return map;
+    }
+
+    private void collect(Collector<Object, ?, List<Object>> toList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

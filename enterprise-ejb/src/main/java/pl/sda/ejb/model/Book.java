@@ -40,8 +40,8 @@ public class Book implements Serializable {
     private int releaseDate;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "books_authors", 
-            joinColumns = @JoinColumn(name = "author_id"),
-            inverseJoinColumns = @JoinColumn(name="book_id"))
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name="author_id"))
     private Collection<Author> authors;
 
     public Long getId() {
