@@ -6,7 +6,6 @@
 package pl.sda.ejb.logic;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,7 +31,7 @@ public class AccountingBean implements AccountingBeanIfc {
         account.setDebit(new BigDecimal(10));
         account.setDate(new Date());
         account.setUser(rent.getUser());
-       em.persist(rent);
+       em.persist(account);
     }
 
     @Override

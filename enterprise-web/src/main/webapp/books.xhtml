@@ -12,22 +12,29 @@
 
             <ui:define name = "content">
                 <h:dataTable styleClass="table table-striped"
-                             value="#{booksTableController.list}" var="car">
+                             value="#{booksTableController.list}" var="book">
                     <h:column>
                         <f:facet name="header">Tytul</f:facet>
-                            #{car.bookTitle}
+                            #{book.bookTitle}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Data wydania</f:facet>
-                            #{car.bookReleaseDate}
+                            #{book.bookReleaseDate}
                     </h:column>
                     <h:column>
                         <f:facet name="header">autorzy</f:facet>
-                        <ui:repeat value="#{car.authors}" var="autor">
+                        <ui:repeat value="#{book.authors}" var="autor">
                             <h:outputText value="#{autor.authorName}" />
                         </ui:repeat>
                     </h:column>
-                   
+                    <h:column>
+                        <f:facet name="header">wypozycz</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{booksTableController.rentBook(book.id)}" value="ypozycz">
+                            <f:param name="idBook" value="#{book.id}"/>
+                        </h:commandLink>                        
+                        </h:form>
+                    </h:column>
                 </h:dataTable>
 
             </ui:define>

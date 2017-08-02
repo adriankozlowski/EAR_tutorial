@@ -7,7 +7,6 @@ package pl.sda.ejb.logic;
 
 import pl.sda.ejb.model.Book;
 
-import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import pl.sda.ejb.model.User;

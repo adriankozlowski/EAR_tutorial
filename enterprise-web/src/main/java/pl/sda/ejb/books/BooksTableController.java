@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.modelmapper.ModelMapper;
 import pl.sda.ejb.logic.BookBeanIfc;
+import pl.sda.ejb.logic.UserBeanIfc;
 import pl.sda.ejb.model.Book;
 
 /**
@@ -27,6 +28,8 @@ public class BooksTableController {
 
     @EJB
     private BookBeanIfc bbi;
+    @EJB
+    private UserBeanIfc ubi;
 
     /**
      * Creates a new instance of BooksTableController
@@ -50,6 +53,11 @@ public class BooksTableController {
 
     private void collect(Collector<Object, ?, List<Object>> toList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public String rentBook(Long id){
+        ubi.rentBook(1L, id); //user id = 1 bo mam tylko 1 usera
+        return "";
     }
 
 }
