@@ -33,4 +33,8 @@ public class RentsTableController {
     public RentsTableController() {
     }
     
+//  public List<RentDto> list(){
+//      
+//  }
+    
 }

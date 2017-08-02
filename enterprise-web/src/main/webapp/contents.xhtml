@@ -3,12 +3,29 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       >
     <body>
         <ui:composition>
-            <div class="starter-template">
-                TEST<br>asdfasdfasdfa</br>asdfasdf
-            </div>
+            <h:dataTable styleClass="table table-striped"
+                         value="#{booksTableController.list}" var="car">
+                <h:column>
+                    <f:facet name="header">Tytul</f:facet>
+                            #{car.bookTitle}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nr rejesracyjny</f:facet>
+                            #{car.bookReleaseDate}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Mass</f:facet>
+                    <ui:repeat value="#{car.authors}" var="autor">
+                        <h:outputText value="#{autor.authorName}" />
+                    </ui:repeat>
+                </h:column>
+                
+            </h:dataTable>
 
         </ui:composition>
     </body>
