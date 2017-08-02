@@ -31,6 +31,7 @@ public class AccountingBean implements AccountingBeanIfc {
         account.setDebit(new BigDecimal(10));
         account.setDate(new Date());
         account.setUser(rent.getUser());
+        account.setRent(rent);
        em.persist(account);
     }
 

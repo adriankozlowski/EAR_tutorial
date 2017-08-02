@@ -109,5 +109,13 @@ public class Account implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public Rent getRent() {
+        return rent;
+    }
+
+    public void setRent(Rent rent) {
+        this.rent = rent;
+    }
     
 }
